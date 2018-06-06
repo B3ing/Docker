@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+
+  repoDocker:
+    container_name: repositoryDocker
+    deploy:
+      restart_policy:
+        condition: on-failure
+    image: registry
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
