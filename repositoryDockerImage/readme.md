@@ -1,40 +1,33 @@
+
+
+
+Un registry Docker est une application server de type conteneur qui permet de stocker et distribuer des images Docker.
+
+Ce dernier permet :
+- un controle sur où sont stockées les images
+- une gestion du réseau de distribution de nos images
+- une intégration de la distribution d'image dans notre workflow local
+
+# Installation avec Docker Compose
+
+
+```yaml
 version: "3.3"
 
 services:
 
-  wordpress:
-    container_name: wordpress
-    deploy:
-      placement:
-        constraints:
-          - node.labels.site == Lyon01
-        preferences:
-          - spread: node.labels.site
-      replicas: 4
-      restart_policy:
-        condition: on-failure
-      resources:
-        reservations:
-          cpus: '0.05'
-          memory: 15M
-        limits:
-          cpus: "0.1"
-          memory: 20M
-    image: wordpress
-    restart: always
+  repoDocker:
+    container_name: repositoryDocker
+    image: registry
+    restart: unless-stopped
     ports:
-      - "8080:80"
+      - "5000:5000"
+```
 
-  DB:
-    container_name: mariadb
-    deploy:
-      replicas: 2
-    image: mariadb
-    restart: always
-    ports:
-      - "3306:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=wpuser
-      - MYSQL_PASSWORD=root
-      - MYSQL_DATABASE=wordpress
+Démarrer la configuration à l'aide de : 
+
+```bash
+$ docker-compose up -d
+```
+
+j'ai pas encore fait la suite, je test le git
