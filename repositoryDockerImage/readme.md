@@ -30,4 +30,18 @@ Démarrer la configuration à l'aide de :
 $ docker-compose up -d
 ```
 
-j'ai pas encore fait la suite, je test le git
+# Utilisation du repository
+
+Récupérer une image depuis le repository local :
+
+```bash
+$ docker pull mondomaine:5000/monimage
+```
+
+Personnaliser une image pour l'envoyer sur le repository local :
+
+```bash
+$ docker tag monimage mondomaine:5000/monimage
+$ docker push mondomaine:5000/monimage
+```
+
