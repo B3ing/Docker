@@ -1,0 +1,7 @@
+[Unit]
+Description="Create the user"
+
+[Service]
+type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash -c "sbin/createuser.sh"
