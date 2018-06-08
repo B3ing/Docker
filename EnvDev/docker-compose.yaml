@@ -21,7 +21,7 @@ services:
 
   db:
     container_name: mariadb
-    image: aveylon/projet_b3_docker:mariadb
+    image: mariadb
     restart: always
     domainname: b3docker.com
     hostname: mydb
