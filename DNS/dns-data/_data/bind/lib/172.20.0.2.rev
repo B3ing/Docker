@@ -1,0 +1,8 @@
+$ttl 38400
+2.0.20.172.in-addr.arpa.	IN	SOA	ns.example.com. admin.example.com. (
+			1528293821
+			10800
+			3600
+			604800
+			38400 )
+2.0.20.172.in-addr.arpa.	IN	NS	ns.example.com.
