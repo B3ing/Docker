@@ -6,21 +6,39 @@ services:
    container_name: apache
    image: aveylon/projet_b3_docker:apache
    domainname: b3docker.com
+   hostname: myap
    environment:
      - ALLOW_OVERRIDE=true
    ports:
      - "8080:80"
    depends_on:
       - db
+   networks: 
+     b3bridge:  
+        aliases: 
+          - myap.b3docker.com 
+
 
   db:
-    container_name: maraidb
+    container_name: mariadb
     image: aveylon/projet_b3_docker:mariadb
     restart: always
     domainname: b3docker.com
+    hostname: mydb
     ports:
       - 3306:3306/tcp
     environment:
       - MYSQL_ROOT_PASSWORD=1234
       - MYSQL_USER=user
       - MYSQL_PASSWORD=1234
+    networks: 
+      b3bridge:  
+        aliases: 
+          - mydb.b3docker.com 
+
+networks: 
+  b3bridge: 
+    driver: bridge 
+    ipam: 
+      driver: default 
+      
