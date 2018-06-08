@@ -13,7 +13,6 @@ services:
       - dns-data:/data
     environment:
       - ROOT_PASSWORD=l9o8i7c6k5
-    networks:
 
 volumes:
   dns-data:

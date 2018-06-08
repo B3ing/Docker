@@ -1,0 +1,11 @@
+$ttl 38400
+example.com.	IN	SOA	ns.example.com. admin.example.com. (
+			1528294114
+			10800
+			3600
+			604800
+			38400 )
+example.com.	IN	NS	ns.example.com.
+ns.example.com.	IN	A	172.20.0.2
+ynov.example.com.	IN	A	172.17.0.2
+www.example.com.	IN	CNAME	ynov
