@@ -4,7 +4,7 @@ services:
 
   web:
    container_name: apache
-   image: dev:2
+   image: aveylon/projet_b3_docker:apache
    domainname: b3docker.com
    environment:
      - ALLOW_OVERRIDE=true
@@ -15,7 +15,7 @@ services:
 
   db:
     container_name: maraidb
-    image: mdb:1
+    image: aveylon/projet_b3_docker:mariadb
     restart: always
     domainname: b3docker.com
     ports:
